@@ -6,9 +6,9 @@ The repository for the Getting and Cleaning Data course project.
 This repository has one script, run_analysis.R, that performs
 the required steps for the course project. 
 
-*Input File: Samsung data from zip,
+* Input File: Samsung data from zip,
  https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip .
-*Output File: SamsungAveragesTidyDataset.txt (tab-delimited file)
+* Output File: SamsungAveragesTidyDataset.txt (tab-delimited file)
 
 ###The project instructions indicate/suggest the following:
 * Run the script where the zip file is located (no need to download it).
@@ -87,5 +87,6 @@ total of 6 * 30 = 180 rows.
 * This 180 x 81 data table with the averages was saved as the tidy dataset
 into SamsungAveragesTidyDataset.txt as tab-delimited data.
 
-For more details, please refer to the comments in the R script.
+For more details, please refer to the comments in the R script,
+__run_analysis.R__.
 
