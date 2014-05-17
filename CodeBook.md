@@ -1,12 +1,12 @@
-### Code Book
-## for Course Project 
-## for Coursera Class Getting and Cleaning Data
+# Code Book
+## Course Project 
+### for Coursera Class Getting and Cleaning Data
 
 Input data for this course project from:  
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-The project script, run_analysis.R creates a tidy dataset
-SamsungAveragesTidyData.txt that contains 81 features (columns) and 180 rows.
+The project script, run_analysis.R, creates a tab-delimited tidy dataset,
+SamsungAveragesTidyData.txt, that contains 81 features (columns) and 180 rows.
 
 The rows are for the 6 different activities, laying, sitting, standing,
 walking, walking upstairs, and walking downstairs, for 30 different subjects
@@ -16,11 +16,11 @@ The features include one for the subject id's (1 to (including) 30) and one
 for the activity labels. The remaining 79 features are described in more
 detail below.
 
-IMPORTANT transformation of the original data: The measurements for the
+IMPORTANT transformation of the original data: The values for the
 79 features in the tidy dataset are the AVERAGES of the 
 original measurements for a given subject for all occurrences of a given 
 activity. The feature names do not include the word "average" in them
-because 1) to help keep the feature names as short as possible (while
+1) to help keep the feature names as short as possible (while
 still meeting project guidelines) and 2) since all the measurements are
 averages, there is no need to label every column as such. For example,
 for subject 1, activity WALKING, the column tdbodyaccelerationmeanx
@@ -28,7 +28,7 @@ has the average for that subject's walking data points for the linear
 acceleration of the phone in the X dimension (in the time domain).
 
 
-# General statements about the features
+### General statements about the features
 
 * Information about original features is taken from zip file's README.txt.
 
@@ -41,8 +41,8 @@ consisted of the linear acceleration along the X, Y, and Z axes of the phone
 and the angular velocity (rotation, indicated as "gyro") in these 3
 dimensions.
 
-* The X-dimension is along the long face of the phone, the Y-dimension is
-along the short face of the phone, and the Z-dimension is along the
+* The X-dimension is along the short face of the phone, the Y-dimension is
+along the long face of the phone, and the Z-dimension is along the
 width (thickness) of the phone.
 
 * The raw data was sampled over time; consequently, it is considered as
@@ -51,10 +51,10 @@ being in the "time domain".
 * The authors also used a Fast Fourier Transform (FFT) to convert some of
 the time data into frequency data.
 
-* Furthermore, the authors also took the first derivative of the linear
-acceleration (the "jerk") and retained this data in additional features. They
-also took the first derivative of the angular momentum, which they labeled
-as "GyroJerk" in additional features.
+* Furthermore, the authors took the first derivative of the linear
+acceleration (the "jerk") and retained this data in additional features. 
+In addition, they took the first derivative of the angular momentum, which
+they labelled as "GyroJerk" in additional features.
 
 * For some values, they took the X, Y, and Z data and computed the magnitude
 (sqrt(X**2 + Y**2 + Z**2)) into additional features.
@@ -72,8 +72,8 @@ keep all features that had "mean" or "std" in their name. This allows
 the maximum of the original data that still meets the guidelines to
 be used in creating the final tidy dataset.
 
-* Note that a feature with "Mean" (capitalized) was not one to keep. The 
-features with Mean in their name dealt with angles and were ignored.
+* Note that a feature with "Mean" (capitalized) in its name was not one to
+keep. The features with Mean in their name dealt with angles and were ignored.
 
 * The original feature names contained punctuation that is illegal in R 
 variable names like parentheses, as well as other punctuation. All 
@@ -81,7 +81,7 @@ punctuation was removed to adhere to guidelines presented in Week 4
 of the course.
 
 * In addition, the course Week 4 lecture said to make the variables all
-lowercase, so this was also done.
+lower case, so this was done.
 
 * Some of the original feature names used abbreviations. The course 
 instructions indicated to make variables more descriptive, so these
@@ -92,176 +92,176 @@ feature names from getting even longer).
 
 * According to Wikipedia, "jerk" is the first derivative of acceleration.
 If the original feature data regarding gyroscope measurements are
-measuring angular velocity, their first derivative wouldn't be called
+measuring angular velocity, their first derivative likely shouldn't be called
 "jerk". However, the term "jerk" was retained (in the "gyrojerk"
 features) to maintain traceability back to the original features.
 
 
-# Specific statements about features
+### The features of the tidy dataset
 
-* subject: numbers 1 to 30, inclusive. These are the identifiers of the
+* __subject__: numbers 1 to 30, inclusive. These are the identifiers of the
 subjects used in generating the original data.
 
-* activity: values drawn from LAYING, SITTING, STANDING, WALKING, 
+* __activity__: values drawn from LAYING, SITTING, STANDING, WALKING, 
 WALKING_UPSTAIRS and WALKING_DOWNSTAIRS. These were the original activity
 labels. To stay as close as possible to the original data, while 
 following project instructions, these labels were used.
 
-* tdbodyaccelerationmeanx, tdbodyaccelerationmeany,	tdbodyaccelerationmeanz:
+* __tdbodyaccelerationmeanx__, __tdbodyaccelerationmeany__, __tdbodyaccelerationmeanz__:
 for one activity of one subject, the average time domain data about the 
 mean of the linear acceleration of the phone, in the X, Y, and Z dimensions.
 
-* tdbodyaccelerationstdx, tdbodyaccelerationstdy, tdbodyaccelerationstdz:
+* __tdbodyaccelerationstdx__, __tdbodyaccelerationstdy__, __tdbodyaccelerationstdz__:
 for one activity of one subject, the average time domain data about the 
 standard deviation of the linear acceleration of the phone, in the X, Y, and
 Z dimensions.
 
-* tdgravityaccelerationmeanx, tdgravityaccelerationmeany, tdgravityaccelerationmeanz:
+* __tdgravityaccelerationmeanx__, __tdgravityaccelerationmeany__, __tdgravityaccelerationmeanz__:
 for one activity of one subject, the average time domain data about the 
-mean of the linear acceleration of the gravity measurement, 
+mean of the linear acceleration of gravity, 
 in the X, Y, and Z dimensions.
 
-* tdgravityaccelerationstdx, tdgravityaccelerationstdy, tdgravityaccelerationstdz:
+* __tdgravityaccelerationstdx__, __tdgravityaccelerationstdy__, __tdgravityaccelerationstdz__:
 for one activity of one subject, the average time domain data about the 
-standard deviation of the linear acceleration of the gravity measurement,
+standard deviation of the linear acceleration of gravity,
 in the X, Y, and Z dimensions.
 
-* tdbodyaccelerationjerkmeanx, tdbodyaccelerationjerkmeany, tdbodyaccelerationjerkmeanz:
+* __tdbodyaccelerationjerkmeanx__, __tdbodyaccelerationjerkmeany__, __tdbodyaccelerationjerkmeanz__:
 for one activity of one subject, the average time domain data about the 
 mean of the derivative of the linear acceleration of the phone
 in the X, Y, and Z dimensions.
 
-* tdbodyaccelerationjerkstdx, tdbodyaccelerationjerkstdy, tdbodyaccelerationjerkstdz:
+* __tdbodyaccelerationjerkstdx__, __tdbodyaccelerationjerkstdy__, __tdbodyaccelerationjerkstdz__:
 for one activity of one subject, the average time domain data about the 
 standard deviation of the derivative of the linear acceleration of the phone 
 in the X, Y, and Z dimensions.
 
-* tdbodygyromeanx, tdbodygyromeany, tdbodygyromeanz:
+* __tdbodygyromeanx__, __tdbodygyromeany__, __tdbodygyromeanz__:
 for one activity of one subject, the average time domain data about the 
 mean of the angular velocity of the phone, in the X, Y, and Z dimensions.
 
-* tdbodygyrostdx, tdbodygyrostdy, tdbodygyrostdz:
+* __tdbodygyrostdx__, __tdbodygyrostdy__, __tdbodygyrostdz__:
 for one activity of one subject, the average time domain data about the 
 standard deviation of the angular velocity of the phone, in the X, Y,
 and Z dimensions.
 
-* tdbodygyrojerkmeanx, tdbodygyrojerkmeany, tdbodygyrojerkmeanz:
+* __tdbodygyrojerkmeanx__, __tdbodygyrojerkmeany__, __tdbodygyrojerkmeanz__:
 for one activity of one subject, the average time domain data about the 
 mean of the derivative of the angular velocity of the phone 
 in the X, Y, and Z dimensions.
 
-* tdbodygyrojerkstdx, tdbodygyrojerkstdy, tdbodygyrojerkstdz:
+* __tdbodygyrojerkstdx__, __tdbodygyrojerkstdy__, __tdbodygyrojerkstdz__:
 for one activity of one subject, the average time domain data about the 
 standard deviation of the derivative of the angular velocity of the phone
 in the X, Y, and Z dimensions.
 
-* tdbodyaccelerationmagnitudemean, tdbodyaccelerationmagnitudestd:
+* __tdbodyaccelerationmagnitudemean__, __tdbodyaccelerationmagnitudestd__:
 for one activity of one subject, the average magnitude of the time domain
 data about the linear acceleration of the phone, mean and standard
 deviation.
 
-* tdgravityaccelerationmagnitudemean, tdgravityaccelerationmagnitudestd:
+* __tdgravityaccelerationmagnitudemean__, __tdgravityaccelerationmagnitudestd__:
 for one activity of one subject, the average magnitude of the time domain
-data about the linear acceleration of the gravity measurement, 
+data about the linear acceleration of gravity, 
 mean and standard deviation.
 
-* tdbodyaccelerationjerkmagnitudemean, tdbodyaccelerationjerkmagnitudestd:
+* __tdbodyaccelerationjerkmagnitudemean__, __tdbodyaccelerationjerkmagnitudestd__:
 for one activity of one subject, the average magnitude of the time domain
 data about the first derivative of the linear acceleration of the phone,
 mean and standard deviation.
 
-* tdbodygyromagnitudemean, tdbodygyromagnitudestd:
+* __tdbodygyromagnitudemean__, __tdbodygyromagnitudestd__:
 for one activity of one subject, the average magnitude of the time domain
 data about the angular velocity of the phone, 
 mean and standard deviation.
 
-* tdbodygyrojerkmagnitudemean, tdbodygyrojerkmagnitudestd:
+* __tdbodygyrojerkmagnitudemean__, __tdbodygyrojerkmagnitudestd__:
 for one activity of one subject, the average magnitude of the time domain
 data about the first derivative of the angular velocity of the phone,
 mean and standard deviation.
 
-* fftbodyaccelerationmeanx, fftbodyaccelerationmeany, fftbodyaccelerationmeanz:
+* __fftbodyaccelerationmeanx__, __fftbodyaccelerationmeany__, __fftbodyaccelerationmeanz__:
 for one activity of one subject, the average frequency domain data about the 
 mean of the linear acceleration of the phone, in the X, Y, and Z dimensions.
 
-* fftbodyaccelerationstdx, fftbodyaccelerationstdy, fftbodyaccelerationstdz:
+* __fftbodyaccelerationstdx__, __fftbodyaccelerationstdy__, __fftbodyaccelerationstdz__:
 for one activity of one subject, the average frequency domain data about the 
 standard deviation of the linear acceleration of the phone, in the
 X, Y, and Z dimensions.
 
-* fftbodyaccelerationmeanfrequencyx, fftbodyaccelerationmeanfrequencyy, fftbodyaccelerationmeanfrequencyz:
+* __fftbodyaccelerationmeanfrequencyx__, __fftbodyaccelerationmeanfrequencyy__, __fftbodyaccelerationmeanfrequencyz__:
 for one activity of one subject, the average frequency domain data about the 
 mean of the frequencies of the linear acceleration of the phone, in the
 X, Y, and Z dimensions.
 
-* fftbodyaccelerationjerkmeanx, fftbodyaccelerationjerkmeany, fftbodyaccelerationjerkmeanz:
+* __fftbodyaccelerationjerkmeanx__, __fftbodyaccelerationjerkmeany__, __fftbodyaccelerationjerkmeanz__:
 for one activity of one subject, the average frequency domain data about the 
 mean of the first derivative of the linear acceleration of the phone, 
 in the X, Y, and Z dimensions.
 
-* fftbodyaccelerationjerkstdx, fftbodyaccelerationjerkstdy, fftbodyaccelerationjerkstdz:
+* __fftbodyaccelerationjerkstdx__, __fftbodyaccelerationjerkstdy__, __fftbodyaccelerationjerkstdz__:
 for one activity of one subject, the average frequency domain data about the 
 standard deviation of the first derivative of the linear acceleration of the phone, 
 in the X, Y, and Z dimensions.
 
-* fftbodyaccelerationjerkmeanfrequencyx, fftbodyaccelerationjerkmeanfrequencyy, fftbodyaccelerationjerkmeanfrequencyz:
+* __fftbodyaccelerationjerkmeanfrequencyx__, __fftbodyaccelerationjerkmeanfrequencyy__, __fftbodyaccelerationjerkmeanfrequencyz__:
 for one activity of one subject, the average frequency domain data about the 
 mean of the frequencies of the first derivative of the linear acceleration
 of the phone, in the X, Y, and Z dimensions.
 
-* fftbodygyromeanx, fftbodygyromeany, fftbodygyromeanz:
+* __fftbodygyromeanx__, __fftbodygyromeany__, __fftbodygyromeanz__:
 for one activity of one subject, the average frequency domain data about the 
 mean of the angular velocity of the phone, in the X, Y, and Z dimensions.
 
-* fftbodygyrostdx, fftbodygyrostdy, fftbodygyrostdz:
+* __fftbodygyrostdx__, __fftbodygyrostdy__, __fftbodygyrostdz__:
 for one activity of one subject, the average frequency domain data about the 
 standard deviation of the angular velocity of the phone, in the
 X, Y, and Z dimensions.
 
-* fftbodygyromeanfrequencyx, fftbodygyromeanfrequencyy, fftbodygyromeanfrequencyz:
+* __fftbodygyromeanfrequencyx__, __fftbodygyromeanfrequencyy__, __fftbodygyromeanfrequencyz__:
 for one activity of one subject, the average frequency domain data about the 
 mean of the frequencies of the first derivative of the angular velocity
 of the phone, in the X, Y, and Z dimensions.
 
-* fftbodyaccelerationmagnitudemean, fftbodyaccelerationmagnitudestd:
+* __fftbodyaccelerationmagnitudemean__, __fftbodyaccelerationmagnitudestd__:
 for one activity of one subject, the average magnitude of the frequency domain
 data about the linear acceleration of the phone, mean and standard deviation.
 
-* fftbodyaccelerationmagnitudemeanfrequency:
+* __fftbodyaccelerationmagnitudemeanfrequency__:
 for one activity of one subject, the average magnitude of the frequency domain
 data for the mean frequencies of the linear acceleration of the phone.
 
-* fftbodybodyaccelerationjerkmagnitudemean, fftbodybodyaccelerationjerkmagnitudestd:
+* __fftbodybodyaccelerationjerkmagnitudemean__, __fftbodybodyaccelerationjerkmagnitudestd__:
 for one activity of one subject, the average magnitude of the frequency domain
 data about the first derivative of the linear acceleration of the phone,
 mean and standard deviation.
 
-* fftbodybodyaccelerationjerkmagnitudemeanfrequency:
+* __fftbodybodyaccelerationjerkmagnitudemeanfrequency__:
 for one activity of one subject, the average magnitude of the frequency domain
 data for the mean frequencies of the first derivative of the linear 
 acceleration of the phone.
 
-* fftbodybodygyromagnitudemean, fftbodybodygyromagnitudestd:
+* __fftbodybodygyromagnitudemean__, __fftbodybodygyromagnitudestd__:
 for one activity of one subject, the average magnitude of the frequency domain
 data about the angular velocity of the phone, mean and standard deviation.
 
-* fftbodybodygyromagnitudemeanfrequency:
+* __fftbodybodygyromagnitudemeanfrequency__:
 for one activity of one subject, the average magnitude of the frequency domain
 data for the mean frequencies of the angular velocity of the phone.
 
-* fftbodybodygyrojerkmagnitudemean, fftbodybodygyrojerkmagnitudestd:
+* __fftbodybodygyrojerkmagnitudemean__, __fftbodybodygyrojerkmagnitudestd__:
 for one activity of one subject, the average magnitude of the frequency domain
 data for the mean frequencies of the first derivative of the angular 
 velocity of the phone.
 
-* fftbodybodygyrojerkmagnitudemeanfrequency:
+* __fftbodybodygyrojerkmagnitudemeanfrequency__:
 for one activity of one subject, the average magnitude of the frequency domain
 data for the mean frequencies of the first derivative of the angular 
 velocity of the phone.
 
 
 
-# Original data
+### Original data
 
 Original dataset from: 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
