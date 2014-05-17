@@ -4,15 +4,16 @@ GetCleanDataCourseProject
 The repository for the Getting and Cleaning Data course project.
 
 This repository has one script, run_analysis.R, that performs
-the required steps for the course project.
+the required steps for the course project. 
 
-*Input: Samsung data from zip,
+*Input File: Samsung data from zip,
  https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip .
-*Output: SamsungAveragesTidyDataset.txt (tab-delimited file)
+*Output File: SamsungAveragesTidyDataset.txt (tab-delimited file)
 
 ###The project instructions indicate/suggest the following:
 * Run the script where the zip file is located (no need to download it).
-* If the zip is not there, exit with an error.
+* The script requires no command line arguments. It can be sourced and run in R.
+* If the zip is not there, the script exits with an error.
 * Step 1: Merge training and test sets to create one data set.
 * Step 2: Extract only the measurements on the mean and std dev.
 * Step 3: Use descriptive activity names to name the activities in the data set
